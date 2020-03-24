@@ -20,8 +20,22 @@
             <div class="row">
                 <div class="col-xs-8  col-xs-offset-2">
                     <h1 class="page-header">Tutorial de tags(Sistemas de Etiquetacion)</h1>
-                    errores
-                    <br>
+                    
+                    @if(session('info')) 
+                        <div class="alert alert-success" role="alert">
+                            {{ session('info')  }}
+                        </div>
+                    @endif
+
+                    @if(count($errors))
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li> {{ $error }} </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif    
                     
                     <form action=" {{ route('post.store') }} " method="POST">
                         @csrf
