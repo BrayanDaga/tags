@@ -16,4 +16,4 @@ use Conner\Tagging\Model\Tag;
 
 Route::get('/','PostController@index')->name('post.index');
 
-Route::get('guardar-post','PostController@store')->name('post.store');
+Route::post('guardar-post','PostController@store')->name('post.store');

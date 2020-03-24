@@ -37,7 +37,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tags=explode(',',$request->tags);
+        $post = Post::create($request->all());
+        $post->tag($tags);
+        return back()->with('info','Post creado con exito');
     }
 
     /**
